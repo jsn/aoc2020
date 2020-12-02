@@ -1,6 +1,5 @@
 (ns d00
   (:require [clojure.test :refer :all]
-            [clojure.java.io :as io]
             [util])
   (:gen-class))
 
