@@ -1,6 +1,6 @@
 (ns d00
   (:require [clojure.test :refer :all]
-            [util])
+            [util :as u])
   (:gen-class))
 
 (set! *warn-on-reflection* true)

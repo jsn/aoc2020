@@ -1,6 +1,5 @@
 (ns util
-  (:require [clojure.test :refer :all]
-            [clojure.java.io :as io]))
+  (:require [clojure.test :refer :all]))
 
 (defn string->vector [s] (read-string (str \[ s \])))
 
