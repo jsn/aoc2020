@@ -1,5 +1,7 @@
 (ns d00
   (:require [clojure.test :refer :all]
+            [clojure.pprint :refer [pprint]]
+            [taoensso.truss :refer [have!]]
             [util :as u])
   (:gen-class))
 
