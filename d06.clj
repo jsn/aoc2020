@@ -31,7 +31,7 @@ b")
   (->> (str/split s #"\n\n") (map #(count-one % op)) (apply +)))
 
 (defn- run-one [s] (count-all s set/union))
-(defn- run-one [s] (count-all s set/intersection))
+(defn- run-two [s] (count-all s set/intersection))
 
 (defn one [] (-> "d06.in" slurp run-one))
 (defn two [] (-> "d06.in" slurp run-two))
