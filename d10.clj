@@ -27,7 +27,7 @@
   (is (= 35 (one test1-1)))
   (is (= 220 (one test1-2))))
 
-(defn- count-variants1 [n1s]
+(defn- count-variants1 [^long n1s]
   (case n1s
     1 1 ; 1
     2 2 ; 11 2
