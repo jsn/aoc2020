@@ -48,6 +48,29 @@
   (is (= (two test1-1) 8))
   (is (= (two test1-2) 19208)))
 
+(defn- n-variants [v]
+  (case (count v)
+    0 1
+    1 1
+    2 (+ (n-variants (subvec v 1)) (n-variants (subvec v 2)))
+    (+ (n-variants (subvec v 1)) (n-variants (subvec v 2))
+       (if (= [-1 -1 -1] (subvec v 0 3)) (n-variants (subvec v 3)) 0))))
+
+(defn two' [s]
+  (->> s
+       u/string->vector
+       diffs
+       (partition-by #{-3})
+       (remove (comp #{-3} first))
+       (map vec)
+       (map n-variants)
+       (apply *)))
+
+(deftest t2'
+  (is (= (two' test1-1) 8))
+  (is (= (two' test1-2) 19208)))
+
 (defn -main [& args]
   (println "1." (-> "d10.in" slurp one))
-  (println "2." (-> "d10.in" slurp two)))
+  (println "2." (-> "d10.in" slurp two))
+  (println "2'." (-> "d10.in" slurp two')))
