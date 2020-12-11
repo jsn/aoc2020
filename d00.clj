@@ -2,21 +2,18 @@
   (:require [clojure.test :refer :all]
             [clojure.pprint :refer [pprint]]
             [taoensso.truss :refer [have!]]
-            [util :as u])
+            [util :as u :refer :all])
   (:gen-class))
 
 (set! *warn-on-reflection* true)
 
-(defn one []
+(defn one [s]
   "not implemented.")
 
-(defn two []
+(defn two [s]
   "not implemented")
 
 (defn -main [& args]
-  (println "1." (one))
-  (println "2." (two)))
-
-(deftest everything
-  (testing "read-input"
-    (is (= 100 100))))
+  (let [input (slurp "d00.in")]
+    (println "1." (one input))
+    (println "2." (two input))))
